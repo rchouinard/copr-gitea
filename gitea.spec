@@ -10,9 +10,9 @@ Group:          System Environment/Daemons
 License:        MIT
 URL:            https://gitea.io/
 Source0:        https://github.com/go-gitea/gitea/releases/download/v%{version}/gitea-%{version}-linux-amd64
-Source1:        https://raw.githubusercontent.com/go-gitea/gitea/v%{version}/contrib/systemd/gitea.service
+Source1:        gitea.service
 Source2:        https://raw.githubusercontent.com/go-gitea/gitea/v%{version}/custom/conf/app.ini.sample
-Source3:        https://raw.githubusercontent.com/go-gitea/gitea/v%{version}/LICENSE
+Source3:        LICENSE
 
 BuildRequires:  systemd-units
 
