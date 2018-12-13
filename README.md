@@ -31,7 +31,7 @@ Please report any application issues to the [Gitea project][link-gitea]. Any ins
 The author and contributors to this repository are not affiliated with the Gitea project in any way. This project simply aims to provide a simple installation method for the Gitea application on current Fedora versions.
 
 
-[ico-build-status]: https://copr.fedorainfracloud.org/coprs/rchouinard/gitea/packages/gitea/status_image/last_build.png
+[ico-build-status]: https://copr.fedorainfracloud.org/coprs/rchouinard/gitea/package/gitea/status_image/last_build.png
 
 [link-build-status]: https://copr.fedorainfracloud.org/coprs/rchouinard/gitea/package/gitea/
 [link-gitea]: https://gitea.io/
