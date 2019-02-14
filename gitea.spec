@@ -2,7 +2,7 @@
 
 Name:           gitea
 Version:        1.6.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Git with a cup of tea, painless self-hosted git service
 ExclusiveArch:  x86_64
 
@@ -38,7 +38,7 @@ install -p -d -m 0700 %{buildroot}%{_sharedstatedir}/gitea
 %pre
 getent group %{gitea_user} >/dev/null || groupadd -r %{gitea_user}
 getent passwd gitea >/dev/null || \
-    useradd -r -g %{gitea_user} -d %{_sharedstatedir}/gitea -s /sbin/nologin \
+    useradd -r -g %{gitea_user} -d %{_sharedstatedir}/gitea -s /sbin/bash \
     -c "gitea user" %{gitea_user}
 exit 0
 
@@ -64,10 +64,14 @@ esac
 %{_unitdir}/gitea.service
 %config(noreplace) %attr(664, root, %{gitea_user}) %{_sysconfdir}/gitea/app.ini.sample
 %config(noreplace) %attr(664, root, %{gitea_user}) %{_sysconfdir}/gitea/app.ini
-%dir %attr(770, %{gitea_user}, root) %{_sharedstatedir}/gitea
+%dir %attr(700, %{gitea_user}, %{gitea_user}) %{_sharedstatedir}/gitea
 %doc %{_docdir}/gitea/LICENSE
 
 %changelog
+* Thu Feb 14 2019 Ryan Chouinard <rchouinard@gmail.com> - 1.6.1-3
+- Fix gitea home directory permissions
+- Fix gitea user shell preventing ssh from working
+
 * Thu Dec 13 2018 Ryan Chouinard <rchouinard@gmail.com> - 1.6.1-2
 - Fix crash on start caused by default configuration
 - Cleanup spec file
